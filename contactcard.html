@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Card</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="css/text" href="contact.css">
+		<script type="text/javascript">
+		// function hideDesc(){
+		// $('#descr').hide();
+		// };
+		$(document).ready(function(){
+			$('#form1').submit(function(){
+				$('#contacts').append("<div class='wrapper'>" + "<div class='boxes'>" + "<span class='cont'>" + $('#fn').val() + $('#ln').val() + '</span>' + "</div>" + "<div class='boxes2'>" + "<span class='desrc'>" + $('#disc').val() + '</span>' + '</div>' + '</div');
+				return false;
+			});
+			$(document).on('click', '.wrapper', function(){
+				$(this).find(".boxes").toggle();
+				$(this).find(".boxes2").toggle;
+		});
+	});
+		</script>
+</head>
+<body>
+	<form id="form1" action="process.php" method="post">
+		First Name:<input type="text" name="firstName" id="fn">
+		Last Name:<input type="text" name="lasttName" id="ln">
+		Description:<textarea name="description" id="disc"></textarea>
+		<input type="submit" value="Add User">
+	</form>
+	<div id="contacts">
+	</div> 
+</body>
+</html>
